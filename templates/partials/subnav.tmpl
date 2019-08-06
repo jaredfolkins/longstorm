@@ -1,0 +1,8 @@
+{{ define "partials/subnav" }}
+<nav class="sub-nav">
+        <ul>
+            <li><a class="{{ .Active.CreateTweet }}" href="/">Create (step 1)</a></li>
+            <li><a class="{{ .Active.ReviewTweet }}" href="/review">Review (step 2)</a></li>
+        </ul>
+</nav>
+{{ end }}

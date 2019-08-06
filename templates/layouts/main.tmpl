@@ -1,0 +1,27 @@
+<html>
+    {{ template "partials/head" . }}
+    <body>
+        <div class="container">
+            <div class="app">
+                {{ if len .FlashErrors }}
+                    {{ range $k, $f := .FlashErrors }}
+                        <div class="flash-error">{{ $f }}</div>
+                    {{ end }}
+                {{ end }}
+                {{ if len .FlashSuccess }}
+                    {{ range $k, $f := .FlashSuccess }}
+                        <div class="flash-success">{{ $f }}</div>
+                    {{ end }}
+                {{ end }}
+                <nav>
+                    <ul>
+                        <li><a class="{{ .Active.Tweet }}" href="/">Tweet</a></li>
+                        <!-- TODO: <li><a class="{{ .Active.History }}" href="/history">History</a></li> -->
+                        <li><a class="{{ .Active.Settings }}" href="/settings">Settings</a></li>
+                    </ul>
+                </nav>
+                {{ yield }}
+            </div>
+        </div>
+    </body>
+</html>

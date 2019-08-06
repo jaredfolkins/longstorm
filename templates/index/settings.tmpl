@@ -1,0 +1,66 @@
+<div class="posts">
+    <div class="post">
+        <form class="post-form" method="post" action="/settings">
+
+        <h4>Twitter API Keys</h4>
+        <label for="consumer-api-key">Consumer API Key</label>
+        <br>
+        <input name="consumer-api-key" value="{{ .TwitterKeys.ConsumerAPIKey }}" size="64">
+        <br>
+        <br>
+
+        <label for="consumer-secret-key">Consumer API Secret Key</label>
+        <br>
+        <input name="consumer-secret-key" value="{{ .TwitterKeys.ConsumerSecretKey }}" size="64">
+        <br>
+        <br>
+
+        <label for="access-token">Access Token</label>
+        <br>
+        <input name="access-token" value="{{ .TwitterKeys.AccessToken }}" size="64">
+        <br>
+        <br>
+
+        <label for="access-token-secret">Access Token Secret</label>
+        <br>
+        <input name="access-token-secret" value="{{ .TwitterKeys.AccessTokenSecret }}"size="64">
+        <br>
+        <br>
+
+        <h4>Other Settings</h4>
+
+        <p for="honorNewlines">
+            <strong>Keep</strong> the newlines and the carriage returns when posting your LongStorm's?
+            <br>
+            <br>
+            <small>
+                (If you <strong>keep</strong> the characters it gives the LongStorm the feel of a <strong>Wiki</strong> article or a <strong>Word</strong> document. 
+                You can always try the change and review the layout before posting the LongStorm to your twitter account.)
+            </small>
+        </p>
+        <div>
+            {{ if .TwitterKeys.HonorNewlines }}
+                <input type="radio" id="yesHonor" name="honor-newlines" value="yes" checked>
+            {{ else }}
+                <input type="radio" id="yesHonor" name="honor-newlines" value="yes">
+            {{ end }}
+            <label for="yesHonor">Yes</label>
+        </div>
+
+        <div>
+            {{ if not .TwitterKeys.HonorNewlines }}
+                <input type="radio" id="noHonor" name="honor-newlines" value="no" checked>
+            {{ else }}
+                <input type="radio" id="noHonor" name="honor-newlines" value="no">
+            {{ end }}
+            <label for="noHonor">No</label>
+        </div>
+
+        <br>
+        <br>
+
+        <button class="post-input-button">Save</button>
+        </form>
+    </div>
+
+</div>

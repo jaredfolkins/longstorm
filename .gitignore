@@ -1,0 +1,12 @@
+**/*.log
+**/*.db
+*.log
+*.db
+.swp
+.swo
+.idea/
+.vscode/
+.grifter/
+.env
+.DS_Store
+longstorm

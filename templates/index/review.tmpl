@@ -1,0 +1,12 @@
+{{ template "partials/subnav" . }}
+
+{{ if len .Tweets }}
+    {{ range $key, $tweet := .Tweets }}
+        <div class="post">
+            <div class="post-body">{{ $tweet }}</div>
+        </div>
+    {{ end }}
+    <form class="post-form" method="post" action="/long-storm">
+        <button class="post-input-button">🌩 LongStorm 🌩️</button>
+     </form>
+{{ end }}

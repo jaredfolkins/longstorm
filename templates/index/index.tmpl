@@ -1,0 +1,9 @@
+{{ template "partials/subnav" . }}
+<div class="posts">
+    <div class="post">
+        <form class="post-form" method="post" action="/tweet">
+        <textarea class="post-input" name="tweet">{{ .TmpPost.Txt }}</textarea>
+        <button class="post-input-button">Review</button>
+        </form>
+    </div>
+</div>

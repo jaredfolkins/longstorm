@@ -1,0 +1,190 @@
+@font-face {
+  font-family: 'WorkSans';
+  src: url('/assets/fonts/Work_Sans/WorkSans-Light.ttf');
+}
+
+body {
+  font-family: 'WorkSans';
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+.posts {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-flow: column;
+    /* outline-style: solid;
+    outline-width: .05em;
+    outline-color: green; */
+}
+
+.flash-success {
+    margin: 10px;
+    padding: 1em;
+    width: 600px;
+    background-color: rgb(102, 202, 93);
+    color: white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flash-error {
+    margin: 10px;
+    padding: 1em;
+    width: 600px;
+    background-color: rgb(238, 68, 68);
+    color: white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post {
+    margin: 10px;
+    padding: 1em;
+    width: 600px;
+    background-color: rgb(243,243,243);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-profile-img {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 1em;
+    background-color: grey;
+    display: flex;
+}
+
+.post-meta {
+    font-size: 1em;
+    padding-left: .3em;
+}
+
+.post-type {
+    font-size: 10px;
+}
+
+.post-form {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.post-input {
+    flex-grow: 1;
+    padding: .2em;
+    width: 100%;
+    min-width: 200px;
+    height: 500px;
+}
+
+.post-input-button {
+    margin-top: .5em;
+    padding: .2em;
+}
+
+.post-body {
+    font-size: .9em;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.post-username a:link, .post-username a:visited, .post-username a:hover {
+    color:blue;
+    text-decoration: none;
+}
+
+.post-username a:active {
+    color:blue;
+    text-decoration: underline;
+}
+
+.post-body a:link, .post-body a:visited, .post-body a:hover {
+    color:blue;
+    text-decoration: dashed;
+    font-size: 1em;
+}
+
+.post-body a:active {
+    color:#0079ff;
+    text-decoration: underline;
+    font-size: .9em;
+}
+
+@media (max-width: 680px) {
+    .posts {
+        flex-wrap: wrap;
+        flex-flow: wrap;
+    }
+    .post {
+        width: 100%;
+    }
+    .nav {
+        width: 100%;
+    }
+}
+
+.sub-nav {
+    font-size: 11px;
+    margin: 10px;
+}
+
+.sub-nav a {
+    padding: 2px;
+}
+
+nav {
+    background: rgb(243,243,243);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    margin: 10px 10px 10px 10px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    display: block;
+    padding: 20px 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav a:hover {
+    background: #e2e2e2;
+}
+
+nav li {
+    flex: 1 1 auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
