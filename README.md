@@ -2,9 +2,14 @@
 
 LongStorm is a web application that you run locally and that helps faciliate the posting of long form threaded tweets (tweet storms).
 
-# Setup
+# Releases
 
-At the moment you must have ```git and go``` installed in order for LongStorm to run.
+- Download the latest release on the [releases page](https://github.com/jaredfolkins/longstorm/releases).
+- Set the executable bit ```$ chmod 744 longstorm```
+- Run it from the cmd line ```$ ./longstorm```
+- Open up a web browser and go to http://localhost:3000
+
+# Compile
 
 ```
 $ export GO111MODULE=on
