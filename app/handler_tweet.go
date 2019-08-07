@@ -6,7 +6,6 @@ import (
 
 	"github.com/dghubble/go-twitter/twitter"
 	"github.com/jaredfolkins/longstorm/helpers"
-	"github.com/unrolled/render"
 )
 
 func TweetHandler(w http.ResponseWriter, r *http.Request) {
@@ -94,12 +93,8 @@ func ReviewHandler(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	ren := render.New(render.Options{
-		Extensions:      []string{".tmpl", ".html"},
-		Directory:       "templates",    // Specify what path to load the templates from.
-		Layout:          "layouts/main", // Specify a layout template. Layouts can call {{ yield }} to render the current template or {{ partial "css" }} to render a partial from the current template.
-		RequirePartials: true,           // Return an error if a template is missing a partial used in a layout.
-	})
+	// setup render
+	ren := NewRender("layouts/main", boxTmpl)
 
 	view := NewView(w, r)
 	view.Active.Tweet = "active"
@@ -107,7 +102,7 @@ func ReviewHandler(w http.ResponseWriter, r *http.Request) {
 	var tp TmpPost
 	err = db.One("ID", 1, &tp)
 	if err != nil {
-		session.AddFlash(err.Error(), "errors")
+		session.AddFlash(err.Error()+": something is wrong with the TmpPost", "errors")
 		session.Save(r, w)
 		http.Redirect(w, r, "/", 302)
 		return
@@ -121,13 +116,7 @@ func ReviewHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var tk TwitterKeys
-	err = db.One("ID", 1, &tk)
-	if err != nil {
-		session.AddFlash(err.Error(), "errors")
-		session.Save(r, w)
-		http.Redirect(w, r, "/", 302)
-		return
-	}
+	db.One("ID", 1, &tk)
 	tw := &helpers.TweetWorker{}
 	view.Tweets = tw.Storm(tp.Txt, tk.HonorNewlines)
 	ren.HTML(w, http.StatusOK, "index/review", view)

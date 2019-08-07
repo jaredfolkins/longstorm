@@ -3,17 +3,10 @@ package app
 import (
 	"log"
 	"net/http"
-
-	"github.com/unrolled/render"
 )
 
 func SettingsHandler(w http.ResponseWriter, r *http.Request) {
-	ren := render.New(render.Options{
-		Extensions:      []string{".tmpl", ".html"},
-		Directory:       "templates",    // Specify what path to load the templates from.
-		Layout:          "layouts/main", // Specify a layout template. Layouts can call {{ yield }} to render the current template or {{ partial "css" }} to render a partial from the current template.
-		RequirePartials: true,           // Return an error if a template is missing a partial used in a layout.
-	})
+	ren := NewRender("layouts/main", boxTmpl)
 
 	view := NewView(w, r)
 	view.Active.Settings = "active"
@@ -55,7 +48,7 @@ func SaveSettingsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	session.AddFlash("Twitter keys saved successfully.", "success")
+	session.AddFlash("Settings saved successfully.", "success")
 	session.Save(r, w)
 	http.Redirect(w, r, "/settings", 302)
 }

@@ -1,6 +1,10 @@
 @font-face {
   font-family: 'WorkSans';
-  src: url('/assets/fonts/Work_Sans/WorkSans-Light.ttf');
+  src: url('/assets/fonts/WorkSans-Light.ttf');
+}
+
+.txt {
+    width: 100%;
 }
 
 body {

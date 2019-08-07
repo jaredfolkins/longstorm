@@ -18,7 +18,7 @@ func main() {
 
 	// build router
 	rtr := mux.NewRouter()
-	rtr.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
+	rtr.HandleFunc("/assets/{dir}/{file}", app.Asset).Methods("GET")
 	rtr.HandleFunc("/", app.IndexHandler).Methods("GET")
 	rtr.HandleFunc("/tweet", app.TweetHandler).Methods("POST")
 	rtr.HandleFunc("/review", app.ReviewHandler).Methods("GET")

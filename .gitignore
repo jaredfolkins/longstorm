@@ -1,5 +1,6 @@
 **/*.log
 **/*.db
+**/*-packr.go
 *.log
 *.db
 .swp
@@ -10,3 +11,5 @@
 .env
 .DS_Store
 longstorm
+packrd/
+dist/

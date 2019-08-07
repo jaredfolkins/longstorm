@@ -1,0 +1,37 @@
+builds:
+-
+  goos:
+    - darwin
+    - linux
+    - windows
+  goarch:
+    - amd64
+  env:
+    - GO111MODULE=on
+    - CGO_ENABLED=0
+  main: ./main.go
+  binary: longstorm
+
+before:
+  hooks:
+    - go mod download
+    - packr2 clean
+    - packr2
+      
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  name_template: "{{ .Tag }}-next"
+
+changelog:
+  sort: asc
+
+archives:
+  - id: longstorm
+    format: gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+    - none*

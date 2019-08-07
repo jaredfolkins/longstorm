@@ -215,28 +215,3 @@ func is32(ranges []unicode.Range32, r uint32) bool {
 	}
 	return false
 }
-
-/*
-	tw := models.NewTweetWorker()
-	tv, err := tw.TweetTitleAndMeta(st.Title, st.PubKey)
-	c.Logger().Error(err)
-	if err != nil {
-		c.Logger().Error(err)
-		return c.Render(500, r.JSON("{'response': '500'}"))
-	}
-
-	msgs := tw.Breakup(st.Text)
-	param := &twitter.StatusUpdateParams{
-		InReplyToStatusID: tv.ID,
-	}
-
-	for _, m := range msgs {
-		t, err := tw.AppendTweet(m, param)
-		if err != nil {
-			c.Logger().Error(err)
-			return c.Render(500, r.JSON("{'response': '500'}"))
-		}
-		param.InReplyToStatusID = t.ID
-	}
-
-*/
