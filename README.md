@@ -1,6 +1,6 @@
 # 🌩️ LongStorm 🌩️
 
-LongStorm is a web application that you run locally and that helps faciliate the posting of long form threaded tweets (tweet storms).
+LongStorm is a web application that you run locally and that helps facilitate the posting of long form threaded tweets (tweet storms).
 
 # Releases
 
